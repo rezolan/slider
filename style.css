@@ -1,6 +1,6 @@
 .hidden{
-/*    overflow: hidden;*/
-    border: 1px solid black;
+    overflow: hidden;
+/*    border: 1px solid black;*/
     width: 512px;
     height: 128px;
     margin: 20px auto;

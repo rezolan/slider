@@ -9,6 +9,7 @@
     
     <script>
         window.onload = function(){ 
+            var checkPoint = true;
             var img = document.querySelectorAll('img');
             var countImg = img.length;
             var pos = -128;
@@ -16,42 +17,42 @@
                 item.style.left = pos + 'px';
                 pos=pos+128;          
             });
-            var buttonLeft = document.querySelector("#left");  
-            var buttonRight = document.querySelector("#right");  
+            var buttonLeft = document.querySelector('#left');  
+            var buttonRight = document.querySelector('#right');  
             buttonLeft.onclick = move.bind(buttonLeft, true);
             buttonRight.onclick = move.bind(buttonRight, false);
             
             function move(bool){
-                
-                img.forEach(function(item, i, img){
-                    left = item.style.left;
-                    l = parseInt(left, 10);
-                    item.style.transition = 'left ease 1s';
-                    if (bool === true){
-                       l=l+128;
-                        if (l>512){
-                            l = -128; 
-                            item.style.transition = 'none';
-                        } 
-                    }
-                    else{
-                        l=l-128;
-                        if (l<-128){
-                            l = 512; 
-                            item.style.transition = 'none';
+                if (checkPoint === true){
+                    checkPoint = false;
+                    img.forEach(function(item, i, img){
+                        left = item.style.left;
+                        l = parseInt(left, 10);
+                        item.style.transition = 'left ease 1s';
+                        if (bool === true){
+                           l=l+128;
+                            if (l>512){
+                                l = -128; 
+                                item.style.transition = 'none';
+                            } 
                         }
-                    }
-                    
-                    item.style.left = l + 'px';  
-                    
-                });
-            }
-            
-            
-        }
-         
-      
-      
+                        else{
+                            l=l-128;
+                            if (l<-128){
+                                l = 512; 
+                                item.style.transition = 'none';
+                            }
+                        }
+
+                        item.style.left = l + 'px';  
+
+                    });  
+                    setTimeout(function(){
+                        checkPoint = true;
+                    }, 1000);
+                }  
+            }         
+        }  
     </script>
   </head>
   <body>
