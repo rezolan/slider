@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+    
     <script>
         window.onload = function(){ 
             var img = document.querySelectorAll('img');
@@ -14,9 +16,9 @@
                 item.style.left = pos + 'px';
                 pos=pos+128;          
             });
-            var buttonLeft = $("#left");  
-            var buttonRight = $('#right');  
-            buttonLeft.on ('click', move.bind(buttonLeft, true));
+            var buttonLeft = document.querySelector("#left");  
+            var buttonRight = document.querySelector("#right");  
+            buttonLeft.onclick = move.bind(buttonLeft, true);
             buttonRight.onclick = move.bind(buttonRight, false);
             
             function move(bool){
@@ -43,20 +45,24 @@
                     item.style.left = l + 'px';  
                     
                 });
-            }    
+            }
+            
+            
         }
+         
+      
+      
     </script>
-    
   </head>
   <body>
    <div class="hidden">
       <div class="inner">
-       <img src="1.png" alt="">
-       <img src="2.png" alt="">
-       <img src="3.png" alt="">
-       <img src="4.png" alt="">
-       <img src="5.png" alt="">
-       <img src="6.png" alt="">  
+       <img src="img/1.png" alt="">
+       <img src="img/2.png" alt="">
+       <img src="img/3.png" alt="">
+       <img src="img/4.png" alt="">
+       <img src="img/5.png" alt="">
+       <img src="img/6.png" alt="">  
       </div>
    </div>
    <button id="left">left</button>
